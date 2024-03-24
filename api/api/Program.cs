@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Xml.Linq;
 
@@ -39,8 +40,20 @@ app.MapPost("/saveproduct", (Product product) => {
 
 app.MapGet("/", () => "Hello World!");
 
-app.Run();
+//api.app.com/users?datastar={date}&dateend={date}
+app.MapGet("/getproduct", ([FromQuery] string dateStart, [FromQuery] string dateEnd) =>
+{
+    return dateStart + " - " + dateEnd;
+});
 
+//api.app.com/user/{code}
+app.MapGet("/getproduct/{code}", ([FromRoute] string code) =>
+{
+    return code;
+});
+
+
+app.Run();
 
 public class Product {
     public string Code { get; set; }
