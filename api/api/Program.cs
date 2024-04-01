@@ -36,8 +36,13 @@ app.MapGet("/getproduct/{code}", ([FromRoute] string code) =>
     return product;
 });
 
-app.Run();
+app.MapPut("/editproduct", (Product product) =>
+{
+    var productSaved = ProductRepository.GetBy(product.Code);
+    productSaved.Name = product.Name;   
+});
 
+app.Run();
 
 public static class ProductRepository
 {
