@@ -26,35 +26,14 @@ var app = builder.Build();
 
 //app.MapControllers();
 
-app.MapGet("/", () => "Hello World!");
-app.MapPost("/", () => new {Name = "Tiago Melo", Age = 31});
-app.MapGet("/AddHeader", (HttpResponse response) => { 
-    response.Headers.Add("Teste", "Tiago Melo");
-    return new { Name = "Tiago Melo", Age = 31};
-});
-
-
 app.MapPost("/saveproduct", (Product product) => {
-    return product.Code + " - " + product.Name;
+    ProductRepository.Add(product);
 });
 
-app.MapGet("/", () => "Hello World!");
-
-//api.app.com/users?datastar={date}&dateend={date}
-app.MapGet("/getproduct", ([FromQuery] string dateStart, [FromQuery] string dateEnd) =>
-{
-    return dateStart + " - " + dateEnd;
-});
-
-//api.app.com/user/{code}
 app.MapGet("/getproduct/{code}", ([FromRoute] string code) =>
 {
-    return code;
-});
-
-app.MapGet("/getproductbyheader", (HttpRequest request) =>
-{
-    return request.Headers["product-code"].ToString();
+    var product = ProductRepository.GetBy(code);
+    return product;
 });
 
 app.Run();
@@ -74,7 +53,7 @@ public static class ProductRepository
 
     public static Product GetBy(string code)
     {
-        return Products.First(p => p.Code == code);
+        return Products.FirstOrDefault(p => p.Code == code);
     }
 }
 
