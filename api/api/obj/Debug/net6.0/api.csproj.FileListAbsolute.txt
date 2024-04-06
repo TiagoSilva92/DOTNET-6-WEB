@@ -1,5 +1,6 @@
 C:\Users\tiago\OneDrive\Área de Trabalho\DOTNET 6 WEB\api\api\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\tiago\OneDrive\Área de Trabalho\DOTNET 6 WEB\api\api\bin\Debug\net6.0\appsettings.json
+C:\Users\tiago\OneDrive\Área de Trabalho\DOTNET 6 WEB\api\api\bin\Debug\net6.0\appsettings.Staging.json
 C:\Users\tiago\OneDrive\Área de Trabalho\DOTNET 6 WEB\api\api\bin\Debug\net6.0\api.exe
 C:\Users\tiago\OneDrive\Área de Trabalho\DOTNET 6 WEB\api\api\bin\Debug\net6.0\api.deps.json
 C:\Users\tiago\OneDrive\Área de Trabalho\DOTNET 6 WEB\api\api\bin\Debug\net6.0\api.runtimeconfig.json
