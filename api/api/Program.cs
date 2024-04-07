@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Xml.Linq;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ApllicationDbContext>();
 
 // Add services to the container.
 
@@ -101,6 +102,6 @@ public class ApllicationDbContext : DbContext
     public DbSet<Product> Products { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
-        => options.UseSqlServer("Server=localhost;Database=Products;User Id=sa;Password=@Sql2019;MultipleActiveResultSets=true;Encrypt=YES;TrustServerCertificate=YESsssss");
+        => options.UseSqlServer("Server=localhost;Database=Products;User Id=sa;Password=@Sql2019;MultipleActiveResultSets=true;Encrypt=YES;TrustServerCertificate=YES");
 
 }
